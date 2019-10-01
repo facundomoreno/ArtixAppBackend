@@ -17,6 +17,7 @@ app.use(express.json());
 
 app.use(require('./routes/Login'));
 app.use(require('./routes/Clases'));
+app.use(require('./routes/NewClase'));
 
 
 //starting server

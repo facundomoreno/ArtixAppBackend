@@ -3,7 +3,7 @@ const router = express.Router();
 
 const mysqlConnection = require('../database')
 
-router.post('/NewClase', (req, res)=> {
+router.post('/NewClase', function (req, res) {
 
     var usuario = req.body.usuario;
     var dias_disp = req.body.dias_disp;
@@ -11,13 +11,16 @@ router.post('/NewClase', (req, res)=> {
     var tema = req.body.tema;
     var identibits = req.body.identibits;    
 
-    mysqlConnection.query('INSERT INTO clases (materia, tema, dias_disp, usuario, identibits) VALUES (materia, tema, dias_disp, usuario, identibits)'), (err, rows, field)=>{
+    var sql = "INSERT INTO clases (materia, tema, dias_disp, usuario, identibits) SET ?";
+    var values = [materia, tema, dias_disp, usuario, identibits]
+
+    mysqlConnection.query(sql, [values], function (err, rows, field) {
         if(!err){
-            res.json({status: 'Clase registrada con exito'}); 
+            res.json(rows + {status: 'Clase registrada con exito'}); 
         }else{
             console.log(err);
         }
-    };
+    });
 });
 
 module.exports = router;

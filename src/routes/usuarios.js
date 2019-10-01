@@ -12,9 +12,9 @@ const mysqlConnection = require('../database')
         }
     });
 });
-*/
 
-/*
+
+
 router.get('/:id', (req, res) => {
     const {id} = req.params;
     mysqlConnection.query('SELECT * FROM usuarios WHERE id = ?', [id],(err, rows, field)=>{
