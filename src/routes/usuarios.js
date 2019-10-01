@@ -3,16 +3,18 @@ const router = express.Router();
 
 const mysqlConnection = require('../database')
 
-router.get('/', (req, res)=> {
+/*router.get('/', (req, res)=> {
     mysqlConnection.query('SELECT * FROM usuarios', (err, rows, field)=>{
         if(!err){
-            res.json(rows);
+            res.json(rows); 
         }else{
             console.log(err);
         }
     });
 });
+*/
 
+/*
 router.get('/:id', (req, res) => {
     const {id} = req.params;
     mysqlConnection.query('SELECT * FROM usuarios WHERE id = ?', [id],(err, rows, field)=>{
@@ -23,7 +25,6 @@ router.get('/:id', (req, res) => {
         }
     });
 });
-
 
 
 router.post('/', (req, res)=>{
@@ -66,4 +67,4 @@ router.delete('/:id', (req, res) => {
 });
 
 module.exports = router;
-
+*/
