@@ -5,12 +5,12 @@ const mysqlConnection = require('../database')
 
 router.post('/Login', function(req, res, next) {
     
-    var username = req.body.username;
-    var password = req.body.password;
+    var mail = req.body.mail;
+    var password = req.body.password; 
 
     mysqlConnection.query(
-        "SELECT * FROM usuarios WHERE usuario = ? AND pass = ?",
-        [username, password], function (err, row, field) {
+        "SELECT * FROM usuarios WHERE email = ? AND password = ?",
+        [mail, password], function (err, row, field) {
 
             if (err){
                 console.log(err);
@@ -18,7 +18,7 @@ router.post('/Login', function(req, res, next) {
             }
             
             if (row.length > 0) {
-                res.send({ 'success': true, 'usuario': row[0].username });
+                res.send({ 'success': true, 'usuario': row[0].mail });
             }
 
             else {
