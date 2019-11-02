@@ -3,8 +3,8 @@ const router = express.Router();
 
 const mysqlConnection = require('../database')
 
-router.get('/Usuarios', (req, res)=> {
-    mysqlConnection.query("SELECT * FROM usuarios", (err, rows, field)=>{
+router.get('/Map', (req, res)=> {
+    mysqlConnection.query("SELECT * FROM locales", (err, rows, field)=>{
         if(!err){
             res.json(rows); 
         }else{

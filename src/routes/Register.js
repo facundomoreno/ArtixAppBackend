@@ -15,9 +15,20 @@ router.post('/Register', function(req, res) {
     mysqlConnection.query(sql, values, function (err, rows, field) {
 
         if(!err){
-            res.json(rows + {status: 'Usuario registrado con éxito'}); 
-        }else{
+            res.send({'success': true, 'message': 'Usuario registrado con éxito'}); 
+        }
+
+        if (row.length == 0) {
+            res.send({ 'success': false, 'message': 'No se han ingresado datos' });
+        }
+        /*
+        if(mail == "SELECT email FROM usuarios WHERE email = ?"){
+            res.send({'success': false, 'message': 'Ya existe un usuario con este mail'});
+        }
+        */
+        else{
             console.log(err);
+            res.send({'success': false, 'message': 'Error'});
         }
     
     });

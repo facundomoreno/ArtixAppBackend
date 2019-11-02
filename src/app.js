@@ -19,6 +19,8 @@ app.use(require('./routes/Login'));
 app.use(require('./routes/Clases'));
 app.use(require('./routes/NewClase'));
 app.use(require('./routes/Register'));
+app.use(require('./routes/Map'));
+app.use(require('./routes/Productos'));
 
 
 //starting server
