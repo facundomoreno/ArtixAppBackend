@@ -18,7 +18,7 @@ router.post('/Register', function(req, res) {
             res.send({'success': true, 'message': 'Usuario registrado con éxito'}); 
         }
 
-        if (row.length == 0) {
+        /*if (row.length <= 0) {
             res.send({ 'success': false, 'message': 'No se han ingresado datos' });
         }
         /*
