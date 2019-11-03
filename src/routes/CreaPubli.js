@@ -15,10 +15,10 @@ router.post('/Publicar', function(req, res) {
     //var provincia = req.body.provincia;
     //var ciudad = req.body.ciudad;
     //var barrio = req.body.barrio;
-    //var imagen = req.body.imagen;
+    var imagen = req.body.imagen;
 
-    var values = [nombreProducto, estado, descProducto, categoria];
-    var sql =  "INSERT INTO productos (nombreprod, estado, ds_producto, categoria) VALUES (?,?,?,?)"; 
+    var values = [nombreProducto, estado, descProducto, categoria, imagen];
+    var sql =  "INSERT INTO productos (nombreprod, estado, ds_producto, categoria, imagen) VALUES (?,?,?,?,?)"; 
 
     mysqlConnection.query(sql, values, function (err, rows, field) {
 

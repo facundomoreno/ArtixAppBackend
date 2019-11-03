@@ -4,7 +4,7 @@ const mysqlConnection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     port: '3306',
-    password: 'maximus1402',
+    password: 'rootroot',
     database: 'artix'
 });
 
