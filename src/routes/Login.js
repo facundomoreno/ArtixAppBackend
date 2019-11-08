@@ -7,6 +7,7 @@ router.post('/Login', function(req, res, next) {
     
     var mail = req.body.mail;
     var password = req.body.password; 
+    
 
     mysqlConnection.query(
         "SELECT * FROM usuarios WHERE email = ? AND password = ?",
@@ -18,7 +19,13 @@ router.post('/Login', function(req, res, next) {
             }
             
             if (row.length > 0) {
-                res.send({ 'success': true, 'usuario': row[0].mail });
+                
+               var string = JSON.stringify(row);
+               
+               
+              res.send({ 'success': true, 'usuario': row[0].nombre_apellido, 'idusuario' : row[0].id_usuario});
+               
+                
             }
 
             else {
