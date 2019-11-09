@@ -16,20 +16,20 @@ router.post('/Login', function(req, res, next) {
             if (err){
                 console.log(err);
                 res.send({ 'success': false, 'message': 'Could not connect to db' });
+                
             }
             
             if (row.length > 0) {
                 
                var string = JSON.stringify(row);
-               
-               
-              res.send({ 'success': true, 'usuario': row[0].nombre_apellido, 'idusuario' : row[0].id_usuario});
+               res.send({ 'success': true, 'usuario': row[0].nombre_apellido});
                
                 
             }
 
             else {
                 res.send({ 'success': false, 'message': 'Usuario no encontrado' });
+                
             }
         
     });
