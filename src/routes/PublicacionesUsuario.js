@@ -3,15 +3,15 @@ const router = express.Router();
 
 const mysqlConnection = require('../database')
 
-router.post('/Login', function(req, res, next) {
+router.post('/PublicacionesUsuario', function(req, res, next) {
     
-    var mail = req.body.mail;
-    var password = req.body.password; 
+    var publicador = req.body.publicador;
+    
     
 
     mysqlConnection.query(
-        "SELECT * FROM usuarios WHERE email = ? AND password = ?",
-        [mail, password], function (err, row, field) {
+        "SELECT * FROM productos WHERE publicador = ?",
+        [publicador], function (err, rows, field) {
 
             if (err){
                 console.log(err);
@@ -19,10 +19,14 @@ router.post('/Login', function(req, res, next) {
                 
             }
             
-            if (row.length > 0) {
+            if (rows.length > 0) {
+
+                if(publicador != ""){
                 
-               var string = JSON.stringify(row);
-               res.send({'success': true, 'usuario': row[0].nombre_apellido});
+               var string = JSON.stringify(rows);
+               
+               res.send({'success': true, 'productos': rows});
+                }
                
                 
             }

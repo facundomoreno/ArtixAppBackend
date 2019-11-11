@@ -52,6 +52,7 @@ app.use(require('./routes/Map'));
 app.use(require('./routes/Productos'));
 app.use(require('./routes/Compras'));
 app.use(require('./routes/CreaPubli'));
+app.use(require('./routes/PublicacionesUsuario'));
 
 
 //starting server
